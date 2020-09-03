@@ -10,13 +10,17 @@ body {
   background-size: cover;
 }
 
+.hidden {
+  display: none;
+}
+
 .header {
   background: #0fb9b1;
   display: flex;
   justify-content: space-between;
 }
 
-.header > button {
+.add-recipe-button {
   background: rgba(225, 225, 225, .9);
   border-radius: 5px;
   border: none;
@@ -31,25 +35,33 @@ body {
 }
 
 .cook-button {
-
+  border: none;
+  background-color: #0fb9b1;
+  width: 175px;
+  height: 35px;
+  border-radius: 7px;
 }
 
-.user-entry{
+.user-entry > * {
+  margin: 1.5vh;
+  margin-left: 2vw;
+}
 
+.output-display {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .box {
+  font-size: 20px;
   background: rgba(225, 225, 225, .9);
-  justify-content: space-around;
   height: 55vh;
   margin: 5vh auto;
   width: 35vw;
   display: flex;
   flex-direction: column;
-}
-
-.input-box {
-
+  justify-content: center;
 }
 
 h2 {

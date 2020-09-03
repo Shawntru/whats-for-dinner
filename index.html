@@ -10,29 +10,31 @@
       <button class="add-recipe-button">ADD A RECIPE</button>
     </section>
     <section class="content">
+      <div class="box user-entry">
+        <h1>What are you looking for?<span style="color: red">*</span></h1>
+        <div>
+          <input type="radio" id="side" name="meal" value="side">
+          <label for="side">Side</label>
+        </div>
+        <div>
+          <input type="radio" id="main" name="meal" value="main">
+          <label for="main">Main Dish</label>
+        </div>
+        <div>
+          <input type="radio" id="dessert" name="meal" value="dessert">
+          <label for="dessert">Dessert</label>
+        </div>
+        <div>
+          <input type="radio" id="entire-meal" name="meal" value="entireMeal">
+          <label for="entireMeal">Entire Meal</label>
+        </div>
+        <button class="cook-button">LET'S COOK!</button>
+      </div>
       <div class="box">
-        <h1>What are you looking for?</h1>
-        <div class="user-entry">
-          <div>
-            <input type="radio" id="side" name="meal" value="side">
-            <label for="side">Side</label>
-          </div>
-          <div>
-            <input type="radio" id="main" name="meal" value="main">
-            <label for="main">Main Dish</label>
-          </div>
-          <div>
-            <input type="radio" id="dessert" name="meal" value="dessert">
-            <label for="dessert">Dessert</label>
-          </div>
-          <div>
-            <input type="radio" id="entire-meal" name="meal" value="entireMeal">
-            <label for="entireMeal">Entire Meal</label>
-          </div>
-          <button class="cook-button">LET'S COOK!</button>
+        <div class="output-display">
+          <img class="crockpot" src="./assets/cookpot.svg" alt="Cooking Pot">
         </div>
       </div>
-      <div class="box"></div>
     </section>
   </body>
   <script type="text/javascript" src="main.js"></script>
