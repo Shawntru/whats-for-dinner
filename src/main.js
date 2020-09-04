@@ -1,6 +1,6 @@
 var crockpot = document.querySelector('.crockpot');
 var recipeOutput = document.querySelector('.recipe-output');
-var recipeText = document.querySelector('.recipe-text');
+var clearButton = document.querySelector('.clear-button');
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -30,5 +30,16 @@ function entireMeal() {
 function displayFood(food) {
   crockpot.classList.add('hidden');
   recipeOutput.classList.remove('hidden');
-  recipeText.innerText = food;
+  clearButton.classList.remove('hidden');
+  document.querySelector('.recipe-text').innerText = food;
+}
+
+function enableCook() {
+  document.getElementById('cookingButton').disabled = false;
+}
+
+function clearOutput() {
+  crockpot.classList.remove('hidden');
+  recipeOutput.classList.add('hidden');
+  clearButton.classList.add('hidden');
 }

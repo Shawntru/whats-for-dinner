@@ -13,18 +13,18 @@
       <div class="box user-entry">
         <h1>What are you looking for?<span style="color: red">*</span></h1>
         <div>
-          <input type="radio" name="meal" value="side"> Side
+          <input type="radio" name="meal" value="side" onclick="enableCook()"> Side
         </div>
         <div>
-          <input type="radio" name="meal" value="main"> Main Dish
+          <input type="radio" name="meal" value="main" onclick="enableCook()"> Main Dish
         </div>
         <div>
-          <input type="radio" name="meal" value="dessert"> Dessert
+          <input type="radio" name="meal" value="dessert" onclick="enableCook()"> Dessert
         </div>
         <div>
-          <input type="radio" name="meal" value="entire"> Entire Meal
+          <input type="radio" name="meal" value="entire" onclick="enableCook()"> Entire Meal
         </div>
-        <button class="cook-button" onclick="letsCook()">LET'S COOK!</button>
+        <button class="cook-button" id="cookingButton" onclick="letsCook()" disabled>LET'S COOK!</button>
       </div>
       <div class="box">
         <div class="output-display">
@@ -34,6 +34,7 @@
           </div>
           <img class="crockpot" src="./assets/cookpot.svg" alt="Cooking Pot">
         </div>
+        <button class="clear-button hidden" onclick="clearOutput()">CLEAR</button>
       </div>
     </section>
   </body>

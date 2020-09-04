@@ -29,6 +29,17 @@ body {
   font-size: 16px;
 }
 
+.clear-button {
+  background-color: #95a5a6;
+  color: rgba(225, 225, 225, .9);
+  border: none;
+  border-radius: 5px;
+  width: 65px;
+  height: 35px;
+  margin-top: 15vh;
+  margin-left: 29vw;
+}
+
 .content {
   display: flex;
   justify-content: space-around
@@ -54,6 +65,7 @@ body {
 }
 
 .output-display {
+  margin: 15px;
   display: flex;
   justify-content: center;
   align-content: center;
