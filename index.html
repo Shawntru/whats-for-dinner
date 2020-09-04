@@ -7,35 +7,33 @@
   <body>
     <section class="header">
       <h2>What's For Dinner?</h2>
-      <button class="add-recipe-button">ADD A RECIPE</button>
+      <button class="add-recipe-button" onclick="addRecipe()">ADD A RECIPE</button>
     </section>
     <section class="content">
       <div class="box user-entry">
         <h1>What are you looking for?<span style="color: red">*</span></h1>
         <div>
-          <input type="radio" id="side" name="meal" value="side">
-          <label for="side">Side</label>
+          <input type="radio" name="meal" value="side"> Side
         </div>
         <div>
-          <input type="radio" id="main" name="meal" value="main">
-          <label for="main">Main Dish</label>
+          <input type="radio" name="meal" value="main"> Main Dish
         </div>
         <div>
-          <input type="radio" id="dessert" name="meal" value="dessert">
-          <label for="dessert">Dessert</label>
+          <input type="radio" name="meal" value="dessert"> Dessert
         </div>
         <div>
-          <input type="radio" id="entire-meal" name="meal" value="entireMeal">
-          <label for="entireMeal">Entire Meal</label>
+          <input type="radio" name="meal" value="entire"> Entire Meal
         </div>
-        <button class="cook-button">LET'S COOK!</button>
+        <button class="cook-button" onclick="letsCook()">LET'S COOK!</button>
       </div>
       <div class="box">
         <div class="output-display">
+          <p class="recipe-text" "hidden"></p>
           <img class="crockpot" src="./assets/cookpot.svg" alt="Cooking Pot">
         </div>
       </div>
     </section>
   </body>
-  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="src/main.js"></script>
+  <script src="src/data.js"></script>
 </html>
