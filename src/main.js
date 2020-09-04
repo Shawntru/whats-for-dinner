@@ -1,5 +1,6 @@
 var crockpot = document.querySelector('.crockpot');
-var recipeText = document.querySelector('.recipe-text')
+var recipeOutput = document.querySelector('.recipe-output');
+var recipeText = document.querySelector('.recipe-text');
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -28,6 +29,6 @@ function entireMeal() {
 
 function displayFood(food) {
   crockpot.classList.add('hidden');
-  recipeText.classList.remove('hidden');
+  recipeOutput.classList.remove('hidden');
   recipeText.innerText = food;
 }
