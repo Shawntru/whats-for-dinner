@@ -14,6 +14,13 @@ function recipeButton() {
 
 function submitRecipe() {
   event.preventDefault();
+  var typeTextBox = document.getElementById('type').value;
+  var nameTextBox = document.getElementById('recipe').value;
+  if (typeTextBox == 'Side' && !sides.includes(nameTextBox)) sides.push(nameTextBox);
+  if (typeTextBox == 'Main' && !mains.includes(nameTextBox)) mains.push(nameTextBox);
+  if (typeTextBox == 'Dessert' && !desserts.includes(nameTextBox)) desserts.push(nameTextBox);
+  document.getElementById('type').value = '';
+  document.getElementById('recipe').value = '';
 }
 
 function letsCook() {
@@ -43,7 +50,6 @@ function displayFood(food) {
 function enableCook() {
   cookButton.disabled = false;
   cookButton.classList.add('button');
-
 }
 
 function clearOutput() {
