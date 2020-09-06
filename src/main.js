@@ -1,6 +1,7 @@
 var crockpot = document.querySelector('.crockpot');
 var recipeOutput = document.querySelector('.recipe-output');
 var clearButton = document.querySelector('.clear-button');
+var outputBox = document.querySelector('.output-box');
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -45,10 +46,18 @@ function entireMeal() {
   displayFood(wholeMeal);
 }
 
+function shakeMe(element) {
+  element.classList.toggle('shake');
+  setTimeout(function() {
+    element.classList.toggle('shake');
+  }, 820);
+}
+
 function displayFood(food) {
   crockpot.classList.add('hidden');
   recipeOutput.classList.remove('hidden');
   clearButton.classList.remove('hidden');
+  shakeMe(outputBox);
   document.querySelector('.recipe-text').innerText = food;
 }
 
@@ -61,4 +70,5 @@ function clearOutput() {
   crockpot.classList.remove('hidden');
   recipeOutput.classList.add('hidden');
   clearButton.classList.add('hidden');
+  shakeMe(outputBox);
 }
