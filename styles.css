@@ -22,6 +22,17 @@ h5 {
   display: none;
 }
 
+.footer-visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+.footer-hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
+}
+
 .header {
   background-color: #0fb9b1;
   display: flex;
@@ -119,11 +130,28 @@ h5 {
 }
 
 .box:hover {
+  transition: all 0.5s ease;
   box-shadow: 5px 5px 50px 10px white inset;
 }
 
 .button:hover {
+  transition: all 0.5s ease;
   box-shadow: 5px 5px 10px 0px white inset;
+}
+
+.clear-button:hover {
+  transition: all 0.5s ease;
+  color: red;
+}
+
+.crockpot {
+  animation: float 3s ease-out infinite;
+}
+
+@keyframes float {
+  50% {
+     transform: translate(0, 20px);
+  }
 }
 
 /*

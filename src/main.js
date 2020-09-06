@@ -11,7 +11,8 @@ function randomFood(foodItem) {
 }
 
 function recipeButton() {
-  document.querySelector('.footer').classList.toggle('hidden');
+  document.querySelector('.footer').classList.toggle('footer-hidden');
+  document.querySelector('.footer').classList.toggle('footer-visible');
 }
 
 function submitRecipe() {
