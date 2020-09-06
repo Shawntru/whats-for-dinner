@@ -1,24 +1,32 @@
 var crockpot = document.querySelector('.crockpot');
 var recipeOutput = document.querySelector('.recipe-output');
 var clearButton = document.querySelector('.clear-button');
-var cookButton = document.getElementById('cookingButton');
-var footerView = document.querySelector('.footer');
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
+function randomFood(foodItem) {
+  return foodItem[getRandomIndex(foodItem)];
+}
+
 function recipeButton() {
-  footerView.classList.toggle('hidden');
+  document.querySelector('.footer').classList.toggle('hidden');
 }
 
 function submitRecipe() {
   event.preventDefault();
-  var typeTextBox = document.getElementById('type').value;
-  var nameTextBox = document.getElementById('recipe').value;
-  if (typeTextBox == 'Side' && !sides.includes(nameTextBox)) sides.push(nameTextBox);
-  if (typeTextBox == 'Main' && !mains.includes(nameTextBox)) mains.push(nameTextBox);
-  if (typeTextBox == 'Dessert' && !desserts.includes(nameTextBox)) desserts.push(nameTextBox);
+  var typeTextBox = document.getElementById('type').value.toLowerCase();
+  var nameTextBox = document.getElementById('recipe').value.toLowerCase();
+  if (typeTextBox == 'side' && !sides.includes(nameTextBox)) {
+    sides.push(nameTextBox);
+  } else if (typeTextBox == 'main' && !mains.includes(nameTextBox)) {
+    mains.push(nameTextBox);
+  } else if (typeTextBox == 'dessert' && !desserts.includes(nameTextBox)) {
+    desserts.push(nameTextBox);
+  } else {
+    alert("Please enter either a Side, Main, or Dessert.");
+  }
   document.getElementById('type').value = '';
   document.getElementById('recipe').value = '';
 }
@@ -26,13 +34,9 @@ function submitRecipe() {
 function letsCook() {
   var checkedButton = document.querySelector('input[name="meal"]:checked').value;
   if (checkedButton === 'side') displayFood(randomFood(sides));
-  if (checkedButton === 'main') displayFood(randomFood(mains));
-  if (checkedButton === 'dessert') displayFood(randomFood(desserts));
-  if (checkedButton === 'entire') entireMeal();
-}
-
-function randomFood(foodItem) {
-  return foodItem[getRandomIndex(foodItem)];
+  else if (checkedButton === 'main') displayFood(randomFood(mains));
+  else if (checkedButton === 'dessert') displayFood(randomFood(desserts));
+  else if (checkedButton === 'entire') entireMeal();
 }
 
 function entireMeal() {
@@ -48,8 +52,8 @@ function displayFood(food) {
 }
 
 function enableCook() {
-  cookButton.disabled = false;
-  cookButton.classList.add('button');
+  document.getElementById('cookingButton').disabled = false;
+  document.getElementById('cookingButton').classList.add('button');
 }
 
 function clearOutput() {
