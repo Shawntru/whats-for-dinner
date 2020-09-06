@@ -12,6 +12,7 @@ body {
 
 h2 {
   margin-left: 20px;
+  transform: rotateZ(-6deg);
 }
 
 h5 {
@@ -130,17 +131,18 @@ h5 {
 }
 
 .box:hover {
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
   box-shadow: 5px 5px 50px 10px white inset;
 }
 
 .button:hover {
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
+  transform: scale(1.1);
   box-shadow: 5px 5px 10px 0px white inset;
 }
 
 .clear-button:hover {
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
   color: red;
 }
 
@@ -148,10 +150,70 @@ h5 {
   animation: float 3s ease-out infinite;
 }
 
+.fade-in {
+	opacity:0;
+	animation:fadeIn ease-in 1;
+	animation-fill-mode:forwards;
+	animation-duration:1s;
+}
+
+.fade-in.one > * {
+  animation-delay: 0.7s;
+}
+
+.fade-in.two {
+  animation-delay: 1.2s;
+}
+
+.fade-in.three {
+  animation-delay: 1.7s;
+}
+
+.fade-in.four {
+  animation-delay: 2.2s;
+}
+
+.fade-in.five {
+  animation-delay: 2.7s;
+}
+
+.fade-in.six {
+  animation-delay: 3.2s;
+}
+
+.shake {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
 @keyframes float {
   50% {
      transform: translate(0, 20px);
   }
+}
+
+@keyframes fadeIn {
+  from { opacity:0; } to { opacity:1; }
 }
 
 /*
