@@ -2,6 +2,7 @@ var crockpot = document.querySelector('.crockpot');
 var recipeOutput = document.querySelector('.recipe-output');
 var clearButton = document.querySelector('.clear-button');
 var outputBox = document.querySelector('.output-box');
+var footer = document.querySelector('.footer');
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -29,8 +30,7 @@ function submitRecipe() {
   } else {
     alert("Please enter either a Side, Main, or Dessert.");
   }
-  document.getElementById('type').value = '';
-  document.getElementById('recipe').value = '';
+  animateExit();
 }
 
 function letsCook() {
@@ -53,11 +53,28 @@ function shakeMe(element) {
   }, 820);
 }
 
+function expandMe(element) {
+  element.classList.toggle('zoom');
+  setTimeout(function() {
+    element.classList.toggle('zoom');
+  }, 500);
+}
+
+function animateExit() {
+  recipeButton();
+  footer.classList.add('fly-out');
+  document.body.addEventListener('animationend', function() {
+    footer.classList.remove('fly-out');
+    document.getElementById('type').value = '';
+    document.getElementById('recipe').value = '';
+  });
+}
+
 function displayFood(food) {
   crockpot.classList.add('hidden');
   recipeOutput.classList.remove('hidden');
   clearButton.classList.remove('hidden');
-  shakeMe(outputBox);
+  expandMe(outputBox);
   document.querySelector('.recipe-text').innerText = food;
 }
 
