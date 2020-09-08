@@ -1,10 +1,9 @@
-var crockpot = document.querySelector('.crockpot');
-var recipeOutput = document.querySelector('.recipe-output');
 var clearButton = document.querySelector('.clear-button');
-var outputBox = document.querySelector('.output-box');
+var cookingButton = document.getElementById('cookingButton');
+var crockpot = document.querySelector('.crockpot');
 var footer = document.querySelector('.footer');
-var typeInput = document.getElementById('type');
-var recipeInput = document.getElementById('recipe');
+var outputBox = document.querySelector('.output-box');
+var recipeOutput = document.querySelector('.recipe-output');
 
 function randomFood(foodItem) {
   var i = Math.floor(Math.random() * foodItem.length)
@@ -12,25 +11,24 @@ function randomFood(foodItem) {
 }
 
 function showRecipeEntry() {
-  document.querySelector('.footer').classList.toggle('footer-hidden');
-  document.querySelector('.footer').classList.toggle('footer-visible');
+  footer.classList.toggle('footer-hidden');
+  footer.classList.toggle('footer-visible');
 }
 
 function submitRecipe() {
   event.preventDefault();
-  var typeTextBox = document.getElementById('type').value.toLowerCase();
-  var nameTextBox = document.getElementById('recipe').value.toLowerCase();
-  if (typeTextBox == 'side' && !sides.includes(nameTextBox)) {
-    sides.push(nameTextBox);
-  } else if (typeTextBox == 'main' && !mains.includes(nameTextBox)) {
-    mains.push(nameTextBox);
-  } else if (typeTextBox == 'dessert' && !desserts.includes(nameTextBox)) {
-    desserts.push(nameTextBox);
+  var typeInput = document.getElementById('type').value.toLowerCase();
+  var recipeInput = document.getElementById('recipe').value.toLowerCase();
+  if (typeInput === 'side' && !sides.includes(recipeInput)) {
+    sides.push(recipeInput);
+  } else if (typeInput === 'main' && !mains.includes(recipeInput)) {
+      mains.push(recipeInput);
+  } else if (typeInput === 'dessert' && !desserts.includes(recipeInput)) {
+      desserts.push(recipeInput);
   } else {
-    shakeMe(footer);
-    typeInput.value = '';
-    recipeInput.value = '';
-    return;
+      shakeMe(footer);
+      clearUserInput();
+      return;
   }
   animateExit();
 }
@@ -38,9 +36,9 @@ function submitRecipe() {
 function letsCook() {
   var checkedButton = document.querySelector('input[name="meal"]:checked').value;
   if (checkedButton === 'side') displayFood(randomFood(sides));
-  else if (checkedButton === 'main') displayFood(randomFood(mains));
-  else if (checkedButton === 'dessert') displayFood(randomFood(desserts));
-  else if (checkedButton === 'entire') entireMeal();
+    else if (checkedButton === 'main') displayFood(randomFood(mains));
+    else if (checkedButton === 'dessert') displayFood(randomFood(desserts));
+    else if (checkedButton === 'entire') entireMeal();
 }
 
 function entireMeal() {
@@ -67,9 +65,13 @@ function animateExit() {
   footer.classList.add('fly-out');
   document.body.addEventListener('animationend', function() {
     footer.classList.remove('fly-out');
-    typeInput.value = '';
-    recipeInput.value = '';
+    clearUserInput();
   });
+}
+
+function clearUserInput() {
+  document.getElementById('type').value = '';
+  document.getElementById('recipe').value = '';
 }
 
 function displayFood(food) {
@@ -81,8 +83,8 @@ function displayFood(food) {
 }
 
 function enableCook() {
-  document.getElementById('cookingButton').disabled = false;
-  document.getElementById('cookingButton').classList.add('button');
+  cookingButton.disabled = false;
+  cookingButton.classList.add('button');
 }
 
 function clearOutput() {
