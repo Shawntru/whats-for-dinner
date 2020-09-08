@@ -3,16 +3,15 @@ var recipeOutput = document.querySelector('.recipe-output');
 var clearButton = document.querySelector('.clear-button');
 var outputBox = document.querySelector('.output-box');
 var footer = document.querySelector('.footer');
-
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
-}
+var typeInput = document.getElementById('type');
+var recipeInput = document.getElementById('recipe');
 
 function randomFood(foodItem) {
-  return foodItem[getRandomIndex(foodItem)];
+  var i = Math.floor(Math.random() * foodItem.length)
+  return foodItem[i];
 }
 
-function recipeButton() {
+function showRecipeEntry() {
   document.querySelector('.footer').classList.toggle('footer-hidden');
   document.querySelector('.footer').classList.toggle('footer-visible');
 }
@@ -28,7 +27,10 @@ function submitRecipe() {
   } else if (typeTextBox == 'dessert' && !desserts.includes(nameTextBox)) {
     desserts.push(nameTextBox);
   } else {
-    alert("Please enter either a Side, Main, or Dessert.");
+    shakeMe(footer);
+    typeInput.value = '';
+    recipeInput.value = '';
+    return;
   }
   animateExit();
 }
@@ -61,12 +63,12 @@ function expandMe(element) {
 }
 
 function animateExit() {
-  recipeButton();
+  showRecipeEntry();
   footer.classList.add('fly-out');
   document.body.addEventListener('animationend', function() {
     footer.classList.remove('fly-out');
-    document.getElementById('type').value = '';
-    document.getElementById('recipe').value = '';
+    typeInput.value = '';
+    recipeInput.value = '';
   });
 }
 
