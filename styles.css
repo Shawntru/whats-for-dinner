@@ -71,11 +71,6 @@ h5 {
   margin: 10px;
 }
 
-#type, #recipe {
-  padding:5px;
-  margin: 10px 15px;
-}
-
 .add-recipe-button {
   background: rgba(225, 225, 225, .9);
   border-radius: 5px;
@@ -92,8 +87,7 @@ h5 {
   border-radius: 5px;
   width: 65px;
   height: 35px;
-  margin-top: 15vh;
-  margin-left: 29vw;
+  margin: 15px;
 }
 
 .content {
@@ -107,6 +101,21 @@ h5 {
   width: 175px;
   height: 35px;
   border-radius: 7px;
+}
+
+.find-button {
+  border: none;
+  background-color: #0fb9b1;
+  width: 150px;
+  height: 35px;
+  border-radius: 7px;
+  margin: 15px;
+}
+
+.output-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .new-recipe-button {
@@ -219,6 +228,11 @@ h5 {
 .fly-out {
   animation: disappear 1.5s;
   animation-fill-mode: forwards;
+}
+
+#type, #recipe {
+  padding:5px;
+  margin: 10px 15px;
 }
 
 @keyframes disappear {

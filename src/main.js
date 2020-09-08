@@ -1,4 +1,5 @@
 var clearButton = document.querySelector('.clear-button');
+var findButton = document.querySelector('.find-button');
 var cookingButton = document.getElementById('cookingButton');
 var crockpot = document.querySelector('.crockpot');
 var footer = document.querySelector('.footer');
@@ -31,6 +32,11 @@ function submitRecipe() {
       return;
   }
   animateExit();
+}
+
+function findRecipes() {
+  var foodSearch = document.querySelector('.recipe-text').innerText;
+  window.open('www.google.com/search?q=' + foodSearch + ' recipe', '_blank');
 }
 
 function letsCook() {
@@ -78,6 +84,7 @@ function displayFood(food) {
   crockpot.classList.add('hidden');
   recipeOutput.classList.remove('hidden');
   clearButton.classList.remove('hidden');
+  findButton.classList.remove('hidden');
   expandMe(outputBox);
   document.querySelector('.recipe-text').innerText = food;
 }
@@ -91,5 +98,6 @@ function clearOutput() {
   crockpot.classList.remove('hidden');
   recipeOutput.classList.add('hidden');
   clearButton.classList.add('hidden');
+  findButton.classList.add('hidden');
   shakeMe(outputBox);
 }
